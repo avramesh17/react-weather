@@ -11,7 +11,7 @@ const SelectionPanel = () => {
     const handleChange = e => {
   
         const val = e.target.value
-        fetch(`${cors}api.openweathermap.org/data/2.5/weather?id=${val}&appid=${api_key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?id=${val}&appid=${api_key}`)
         .then(res => res.json())
         .then(res => setCities((cities) => [...cities, res]))
     }
@@ -21,7 +21,7 @@ const SelectionPanel = () => {
 
 const reload = () => {
      cities.map(city => { 
-        fetch(`${cors}api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=${api_key}`)
+        fetch(`https://api.openweathermap.org/data/2.5/weather?id=${city.id}&appid=${api_key}`)
         .then(res => res.json())
         .then(res => {
             setNewCities((newCities) => [...newCities, res])
@@ -36,8 +36,8 @@ const reload = () => {
         <div>
           <select onChange={handleChange}>
               <option>please select a city</option>
-              <option  value="4002796">Cairns</option>
-              <option value="1796247">Los Angeles</option>
+              <option  value="4903184">Mundelein</option>
+              <option value="4903279">Naperville</option>
               <option value="1796228">Linjiang</option>
               <option value="1006984"> East London</option>
               <option value="1796247"> Shanggu</option>
