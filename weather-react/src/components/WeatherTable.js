@@ -31,7 +31,7 @@ const tableData = () => {
             <th>City Name</th>
             <th>Temperature</th>
             <th>Minimum Temperature</th>
-            <th>Local Time</th>
+            <th>Updated At</th>
           </tr>
         </thead>
         <tbody>
