@@ -7,16 +7,28 @@ const SelectionPanel = () => {
 
   const [cities, setCities] = useState([])
   const [newCities, setNewCities] = useState([])
+  const [count, setCount] = useState(1)
+  //const [flag, setFlag] = useState(false)
+
+  console.log('anything')
   const cors = "https://cors-anywhere.herokuapp.com/" 
     const handleChange = e => {
   
         const val = e.target.value
         fetch(`https://api.openweathermap.org/data/2.5/weather?id=${val}&appid=${api_key}`)
         .then(res => res.json())
-        .then(res => setCities((cities) => [...cities, res]))
+        .then(res => { 
+                //setFlag(true)
+                 if(count  <= 5){
+                setCities((cities) => [...cities, res])
+               setCount((c) => c+1)
+                 }else{
+                     alert("maximum of 5 reached")
+                 }
+        })
+        
     }
 
-    console.log(cities, "<===cities")
 
 
 const reload = () => {
